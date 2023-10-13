@@ -76,37 +76,6 @@ header .inner nav ul li a {
   font: 12px/40px "맑은 고딕";
 }
 
-.search {
-  width: 100%;
-  position: relative;
-  margin-bottom: 100px;
-}
-.search .inner {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0 auto;
-  border: 2px solid #239347;
-  display: flex;
-  border-radius: 20px;
-  padding: 5px;
-}
-.search .inner input {
-  border: 1px solid #239347;
-  border: none;
-  font: 16px/1 Noto Sans KR;
-  width: 100%;
-  padding-left: 20px;
-  margin-left: 10px;
-}
-.search .inner a {
-  width: 40px;
-  font-size: 20px;
-  text-align: center;
-  color: #ffcb0a;
-  border-left: 1px solid #239347;
-}
-
 footer {
   width: 100vw;
   height: 100px;
@@ -1220,6 +1189,89 @@ footer > .inner .footerMenu2 ul li {
   font-size: 20px;
   text-align: center;
   border-radius: 15px;
+}
+
+.search {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.search h1 {
+  font: 35px/1 Black Han Sans;
+}
+.search .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  background-color: #fff;
+  padding: 20px;
+}
+.search .inner table {
+  width: 100%;
+}
+.search .inner table tr {
+  display: block;
+  margin: 40px;
+}
+.search .inner table tr th {
+  text-align: left;
+  width: 200px;
+  font: 20px/1 Black Han Sans;
+}
+.search .inner table tr td {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+}
+.search .inner table tr td > div {
+  display: flex;
+  justify-content: start;
+}
+.search .inner table tr td > div label {
+  font: 14px/1 Noto Sans KR;
+  margin: 0;
+}
+.search .inner table tr td > div input {
+  width: 14px;
+}
+.search .inner .slideBox {
+  margin: 0 auto;
+  width: 50%;
+}
+.search .inner .drop {
+  margin: 0 auto;
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  padding: 50px 0;
+  gap: 10px;
+}
+.search .inner .drop .dropBox {
+  width: 100%;
+}
+.search .inner .drop .dropBox select option {
+  font: 14px/1 Noto Sans KR;
+}
+.search .inner .drop .sortOption {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  gap: 10px;
+}
+.search .inner .drop .sortOption div {
+  display: flex;
+}
+.search .inner .drop .sortOption div label {
+  font: 14px/61px Noto Sans KR;
+  margin: 0;
+}
+.search .inner .drop .sortOption div input {
+  width: 14px;
+}
+.search .inner button {
+  margin: 0 auto;
+  width: 10%;
 }
 
 /*# sourceMappingURL=style.css.map */

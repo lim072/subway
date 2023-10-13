@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUBWAY 써브웨이</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://kit.fontawesome.com/220fae79fc.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+            <!------ Include the above in your HEAD tag ---------->
+            <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
+            <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
@@ -27,97 +29,109 @@
     </div>
 </header>
 
-
-<section class="board">
-    <h1>레시피 만들기</h1>
+<section class="search">
+    <h1>검색 조건을 선택해주세요.</h1>
     <div class="inner">
-        <h2>나만의 레시피를 만들어 보세요!</h2>
-
-        <article class="menuPic">
-            <h3>
-                메뉴 선택
-            </h3>
-            <ul id="sandwich-list">
-            </ul>
-        </article>
-        <article class="breadPic">
-            <h3>
-                빵 선택
-            </h3>
-            <ul id="breads-list">
-
-            </ul>
-        </article>
-        <article class="cheesePic">
-            <h3>
-                치즈 선택
-            </h3>
-            <ul id="cheese-list">
-            </ul>
-        </article>
-        <article class="vegePic">
-            <h3>
-                야채 선택
-            </h3>
-            <ul id="veggie-list">
-
-            </ul>
-        </article>
-        <article class="saucePic">
-            <h3>
-                소스 선택
-            </h3>
-            <ul id="sauce-list">
-            </ul>
-        </article>
-        <div class="post">
-            <h2>영양 정보 총합</h2>
-            <div class="total">
-                <div class="inner">
-                    <ul>
-                        <li><span class="total-subject">kcal : </span><span class="total-value"></span></li>
-                    </ul>
-                    <ul>
-                        <li><span class="total-subject">fat : </span><span class="total-value"></span></li>
-                    </ul>
-                    <ul>
-                        <li><span class="total-subject">protein : </span><span class="total-value"></span></li>
-                    </ul>
+        <table>
+            <caption class="hidden">검색을 위한 조건 테이블</caption>
+            <tr>
+                <th scope="row">메뉴</th>
+                <td>
+                    <div>
+                    <label for="스파이시 바비큐">스파이시 바비큐</label>
+                    <input type="radio" name="메뉴" value="스파이시 바비큐">
+                    </div>
+                    <div>
+                    <label for="스파이시 바비큐">스파이시 바비큐</label>
+                    <input type="radio" name="메뉴" value="스파이시 바비큐">
                 </div>
-            </div>
+                <div>
+                    <label for="스파이시 바비큐">스파이시 바비큐</label>
+                    <input type="radio" name="메뉴" value="스파이시 바비큐">
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">싫은 채소</th>
+                <td>
+                    <div>
+                    <label for="오이 제외">오이 제외</label>
+                    <input type="radio" name="싫은 채소" value="오이 제외">
+                    </div>
+                <div>
+                    <label for="오이 제외">오이 제외</label>
+                    <input type="radio" name="싫은 채소" value="오이 제외">
+                </div>
+                <div>
+                    <label for="오이 제외">오이 제외</label>
+                    <input type="radio" name="싫은 채소" value="오이 제외">
+                </div>
+                </td>
+            </tr>
+        </table>
+        <div class="slideBox">
+              <div data-role="rangeslider">
+                <label for="price-min">가격:</label>
+                <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+                <label for="price-max">Price:</label>
+                <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+              </div>
+
+              <div data-role="rangeslider">
+                <label for="price-min">칼로리:</label>
+                <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+                <label for="price-max">Price:</label>
+                <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+              </div>
+
+              <div data-role="rangeslider">
+                <label for="price-min">단백질:</label>
+                <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+                <label for="price-max">Price:</label>
+                <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+              </div>
+
+              <div data-role="rangeslider">
+                <label for="price-min">지방:</label>
+                <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+                <label for="price-max">Price:</label>
+                <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
+              </div>
         </div>
-
-        <div class="post">
-            <h2>레시피 설명</h2>
-            <form>
-                <div class="inner">
-                    <div class="postTitle">
-                        <dl>
-                            <dt>제목</dt>
-                            <dd>
-                                    <span>
-                                        <input type="text" placeholder="레시피 제목을 알려주세요.">
-                                    </span>
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="postDetail">
-                        <dl>
-                            <dt>내용</dt>
-                            <dd>
-                                    <span>
-                                        <textarea placeholder="자세한 설명을 알려주세요."></textarea>
-                                    </span>
-                            </dd>
-                        </dl>
-                    </div>
+        
+        <div class="drop">
+        <div class="dropBox">
+            <select>
+                <option selected>정렬</option>
+                <option value="최신순">최신순</option>
+                <option value="가격순">가격순</option>
+                <option value="추천순">추천순</option>
+                <option value="최신순">비추천순</option>
+                <option value="가격순">칼로리순</option>
+                <option value="추천순">단백질순</option>
+                <option value="추천순">지방순</option>
+            </select>
+          
+        </div>
+        <div class="sortOption">
+            <div>
+                <label for="오름차 순">오름차 순</label>
+                <input type="radio" name="정렬" value="오름차 순">
                 </div>
-                <button><a href="notice.html">완료</a></button>
-            </form>
+            <div>
+                <label for="내림차 순">내림차 순</label>
+                <input type="radio" name="정렬" value="내림차 순">
+            </div>
         </div>
     </div>
 
+
+    <button>
+        검색
+    </button>
+    </div>
 </section>
+
 
 <footer>
     <div class="inner">
