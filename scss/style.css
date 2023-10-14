@@ -1236,8 +1236,95 @@ footer > .inner .footerMenu2 ul li {
   width: 14px;
 }
 .search .inner .slideBox {
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search .inner .slideBox .middle {
+  position: relative;
   width: 50%;
+  max-width: 500px;
+}
+.search .inner .slideBox .middle h2 {
+  font: 20px/1 Black Han Sans;
+  margin-bottom: 20px;
+}
+.search .inner .slideBox .middle .valueBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.search .inner .slideBox .middle .valueBox p {
+  font: 16px/1 Noto Sans KR;
+}
+.search .inner .slideBox .middle .slider {
+  position: relative;
+  z-index: 1;
+  height: 10px;
+  margin: 0 15px;
+}
+.search .inner .slideBox .middle .slider .track {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #b2e0c1;
+}
+.search .inner .slideBox .middle .slider .range {
+  position: absolute;
+  z-index: 2;
+  left: 25%;
+  right: 25%;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+  background-color: #009223;
+}
+.search .inner .slideBox .middle .slider .thumb {
+  position: absolute;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  background-color: #009223;
+  border-radius: 50%;
+}
+.search .inner .slideBox .middle .slider .left {
+  left: 25%;
+  transform: translate(-15px, -10px);
+}
+.search .inner .slideBox .middle .slider .right {
+  right: 25%;
+  transform: translate(15px, -10px);
+}
+.search .inner .slideBox input[type=range] {
+  position: absolute;
+  /* opacity로 가린 것을 이벤트도 비활성화하기 위해 */
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 2;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  opacity: 0;
+}
+.search .inner .slideBox input[type=range]::-webkit-slider-thumb {
+  /* 겹쳐진 두 thumb를 모두 활성화 */
+  pointer-events: all;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+  border: 0 none;
+  background-color: red;
+  cursor: pointer;
+  /* appearance를 해야 위의 스타일들을 볼 수 있음 */
+  -webkit-appearance: none;
 }
 .search .inner .drop {
   margin: 0 auto;

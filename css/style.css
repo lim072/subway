@@ -1238,7 +1238,7 @@ footer > .inner .footerMenu2 ul li {
 .search .inner .slideBox {
   margin: 0;
   padding: 0;
-  height: 200px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1262,7 +1262,7 @@ footer > .inner .footerMenu2 ul li {
   top: 0;
   bottom: 0;
   border-radius: 5px;
-  background-color: #c6aee7;
+  background-color: #b2e0c1;
 }
 .search .inner .slideBox .middle .slider .range {
   position: absolute;
@@ -1272,14 +1272,14 @@ footer > .inner .footerMenu2 ul li {
   top: 0;
   bottom: 0;
   border-radius: 5px;
-  background-color: #6200ee;
+  background-color: #009223;
 }
 .search .inner .slideBox .middle .slider .thumb {
   position: absolute;
   z-index: 3;
   width: 30px;
   height: 30px;
-  background-color: #6200ee;
+  background-color: #009223;
   border-radius: 50%;
 }
 .search .inner .slideBox .middle .slider .left {
@@ -1296,6 +1296,7 @@ footer > .inner .footerMenu2 ul li {
   pointer-events: none;
   -webkit-appearance: none;
   z-index: 2;
+  left: 0;
   height: 10px;
   width: 100%;
   opacity: 0;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUBWAY 써브웨이</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="scss/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -67,7 +67,56 @@
             </tr>
         </table>
         <div class="slideBox">
+
             <div class="middle">
+                <h2>가격</h2>
+                <div class="multi-range-slider">
+                    <!-- 진짜 슬라이더 -->
+                    <input type="range" id="input-left" min="0" max="20000" value="5000" />
+                    <input type="range" id="input-right" min="0" max="20000" value="15000" />
+
+                    <!-- 커스텀 슬라이더 -->
+                    <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb left"></div>
+                        <div class="thumb right"></div>
+                    </div>
+                </div>
+                <div class="valueBox">
+                    <p>최솟값 : <span class="minValue"></span></p>
+                    <p>최댓값 : <span class="maxValue"></span></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="slideBox">
+
+            <div class="middle">
+                <h2>칼로리</h2>
+                <div class="multi-range-slider">
+                    <!-- 진짜 슬라이더 -->
+                    <input type="range" id="input-left" min="0" max="3000" value="750" />
+                    <input type="range" id="input-right" min="0" max="3000" value="2250" />
+
+                    <!-- 커스텀 슬라이더 -->
+                    <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb left"></div>
+                        <div class="thumb right"></div>
+                    </div>
+                </div>
+                <div class="valueBox">
+                    <p>최솟값 : <span class="minValue"></span></p>
+                    <p>최댓값 : <span class="maxValue"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="slideBox">
+
+            <div class="middle">
+                <h2>단백질</h2>
                 <div class="multi-range-slider">
                     <!-- 진짜 슬라이더 -->
                     <input type="range" id="input-left" min="0" max="100" value="25" />
@@ -80,6 +129,33 @@
                         <div class="thumb left"></div>
                         <div class="thumb right"></div>
                     </div>
+                </div>
+                <div class="valueBox">
+                    <p>최솟값 : <span class="minValue"></span></p>
+                    <p>최댓값 : <span class="maxValue"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="slideBox">
+
+            <div class="middle">
+                <h2>지방</h2>
+                <div class="multi-range-slider">
+                    <!-- 진짜 슬라이더 -->
+                    <input type="range" id="input-left" min="0" max="100" value="25" />
+                    <input type="range" id="input-right" min="0" max="100" value="75" />
+
+                    <!-- 커스텀 슬라이더 -->
+                    <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb left"></div>
+                        <div class="thumb right"></div>
+                    </div>
+                </div>
+                <div class="valueBox">
+                    <p>최솟값 : <span class="minValue"></span></p>
+                    <p>최댓값 : <span class="maxValue"></span></p>
                 </div>
             </div>
         </div>
@@ -145,129 +221,6 @@
         dataSettingByUrl("https://api.sub-recipe.com/materials/sauces")
     };
 
-    async function dataSettingByUrl(url) {
-
-        let responsePromise = fetch(url)
-            .then(data => {
-                if (data.ok) {
-                    return data.json();
-                }
-            })
-            .then(response => {
-                if (url.match("sandwich-bases")) {
-                    setSandwichBaseData(response.sandwichBases)
-                    return;
-                }
-                if (url.match("breads")) {
-                    setBreadsData(response.breadDataList)
-                    return;
-                }
-                if (url.match("cheeses")) {
-                    setCheesesData(response.cheeseDataList)
-                    return;
-                }
-                if (url.match("veggies")) {
-                    setVeggiesData(response.veggieDataList)
-                    return;
-                }
-                if (url.match("sauces")) {
-                    setSaucesData(response.sauceDataList)
-                    return;
-                }
-            });
-
-    }
-
-    function setSandwichBaseData(sandwichBaseDataList) {
-
-        const ulList = document.getElementById("sandwich-list");
-
-        sandwichBaseDataList.forEach(item => {
-            const liElement = document.createElement('li');
-            liElement.innerHTML = `
-            <div class="card  border-success mb-3" style="width: 15rem;">
-              <div class="card-body">
-                <h5 class="card-title" id="title">${item.korName}</h5>
-                <img src="${item.image}" class="card-img-top" alt="...">
-                <p class="card-text"><span class="text-subject">kcal : </span><span class="card-text-value">${item.kcal}</span></p>
-                <p class="card-text"><span class="text-subject">fat : </span><span class="card-text-value">${item.fat}</span></p>
-                <p class="card-text"><span class="text-subject">protein : </span><span class="card-text-value">${item.protein}</span></p>
-                <a href="#" class="btn btn-primary">추가</a>
-              </div>
-            </div>
-          `;
-            ulList.appendChild(liElement);
-        })
-
-    }
-
-    function setBreadsData(breadsDataList) {
-
-        const ulList = document.getElementById("breads-list");
-
-        breadsDataList.forEach(item => {
-            const liElement = document.createElement('li');
-            liElement.innerHTML = `
-            <div class="card  border-success mb-3" style="width: 15rem;">
-              <div class="card-body">
-                <h5 class="card-title" id="title">${item.name}</h5>
-                <img src="${item.image}" class="card-img-top" alt="...">
-                <p class="card-text"><span class="text-subject">kcal : </span><span class="card-text-value">${item.kcal}</span></p>
-                <p class="card-text"><span class="text-subject">fat : </span><span class="card-text-value">${item.fat}</span></p>
-                <p class="card-text"><span class="text-subject">protein : </span><span class="card-text-value">${item.protein}</span></p>
-                <a href="#" class="btn btn-primary">추가</a>
-              </div>
-            </div>
-          `;
-            ulList.appendChild(liElement);
-        })
-    }
-
-    function setCheesesData(cheeseDataList) {
-
-        const ulList = document.getElementById("cheese-list");
-
-        cheeseDataList.forEach(item => {
-            const liElement = document.createElement('li');
-            liElement.innerHTML = `
-            <div class="card  border-success mb-3" style="width: 15rem;">
-              <div class="card-body">
-                <h5 class="card-title" id="title">${item.name}</h5>
-                <img src="${item.image}" class="card-img-top" alt="...">
-                <p class="card-text"><span class="text-subject">kcal : </span><span class="card-text-value">${item.kcal}</span></p>
-                <p class="card-text"><span class="text-subject">fat : </span><span class="card-text-value">${item.fat}</span></p>
-                <p class="card-text"><span class="text-subject">protein : </span><span class="card-text-value">${item.protein}</span></p>
-                <a href="#" class="btn btn-primary">추가</a>
-              </div>
-            </div>
-          `;
-            ulList.appendChild(liElement);
-        })
-
-    }
-
-    function setVeggiesData(veggieDataList) {
-
-        const ulList = document.getElementById("veggie-list");
-
-        veggieDataList.forEach(item => {
-            const liElement = document.createElement('li');
-
-            liElement.innerHTML = `
-            <div class="card  border-success mb-3" style="width: 15rem;">
-              <div class="card-body">
-                <h5 class="card-title" id="title">${item.name}</h5>
-                <img src="${item.image}" class="card-img-top" alt="...">
-                <p class="card-text"><span class="text-subject">kcal : </span><span class="card-text-value">${item.kcal}</span></p>
-                <a href="#" class="btn btn-primary">추가</a>
-              </div>
-            </div>
-          `;
-            ulList.appendChild(liElement);
-        })
-
-    }
-
     function setSaucesData(saucesDataList) {
 
         const ulList = document.getElementById("sauce-list");
@@ -289,6 +242,60 @@
         })
 
     }
+
+    const inputLeft = document.querySelector("#input-left");
+    const inputRight = document.querySelector("#input-right");
+
+    const thumbLeft = document.querySelector(".slider > .thumb.left");
+    const thumbRight = document.querySelector(".slider > .thumb.right");
+    const range = document.querySelector(".slider > .range");
+
+    const minOutput = document.querySelector(".minValue");
+    const maxOutput = document.querySelector(".maxValue");
+    minOutput.innerHTML = inputLeft.value;
+    maxOutput.innerHTML = inputRight.value;
+
+    const setLeftValue = () => {
+        const _this = inputLeft;
+        const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+
+        // 교차되지 않게, 1을 빼준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
+        _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
+
+        // input, thumb 같이 움직이도록
+        const percent = ((_this.value - min) / (max - min)) * 100;
+        thumbLeft.style.left = percent + "%";
+        range.style.left = percent + "%";
+
+
+        inputLeft.oninput = function() {
+            minOutput.innerHTML = this.value;
+        }
+    };
+
+    const setRightValue = () => {
+        const _this = inputRight;
+        const [min, max] = [parseInt(_this.min), parseInt(_this.max)];
+
+        // 교차되지 않게, 1을 더해준 건 완전히 겹치기보다는 어느 정도 간격을 남겨두기 위해.
+        _this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+
+        // input, thumb 같이 움직이도록
+        const percent = ((_this.value - min) / (max - min)) * 100;
+        thumbRight.style.right = 100 - percent + "%";
+        range.style.right = 100 - percent + "%";
+
+        inputRight.oninput = function() {
+            maxOutput.innerHTML = this.value;
+        }
+    };
+
+    inputLeft.addEventListener("input", setLeftValue);
+    inputRight.addEventListener("input", setRightValue);
+
+
+
+
 </script>
 
 </body>
