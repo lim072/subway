@@ -267,10 +267,10 @@
         thumbLeft.style.left = percent + "%";
         range.style.left = percent + "%";
 
-
         inputLeft.oninput = function() {
-            minOutput.innerHTML = this.value;
+            minOutput.innerHTML = Math.floor((this.value / 100))*100;
         }
+
     };
 
     const setRightValue = () => {
@@ -286,8 +286,9 @@
         range.style.right = 100 - percent + "%";
 
         inputRight.oninput = function() {
-            maxOutput.innerHTML = this.value;
+            maxOutput.innerHTML = Math.floor((this.value / 100))*100 ;
         }
+
     };
 
     inputLeft.addEventListener("input", setLeftValue);
